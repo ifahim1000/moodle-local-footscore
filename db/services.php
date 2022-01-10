@@ -15,30 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information
+ * Edit or Create a record.
  *
- * @copyright 2012 NetSpot {@link http://www.netspot.com.au}
+ * @package    local_footscore
+ *
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
- require_once(__DIR__.'/../../config.php');
+$functions = array(
+    'local_footscore_delete_score_by_id' => array(
+        'classname'   => 'local_footscore_external_delete',
+        'methodname'  => 'delete_footballscore',
+        'classpath'   => 'local/footscore/externallib.php',
+        'description' => 'Delete a single score by id',
+        'type'        => 'write',
+        'ajax'        => true
+    ),
+);
 
- global $DB;
-
-  $PAGE->set_url(new moodle_url('/local/footscore/manage_delete.php'));
-  $PAGE->set_context(\context_system::instance());
-  $PAGE->set_title('Delete Football Scores');
-  $PAGE->requires->js_call_amd('local_footscore/confirm_delete_modal', 'init', array());
-
-
-  $goalrecords= $DB->get_records('local_footscore');
-
-
-  echo $OUTPUT->header();
-  $templatecontext = (object)[
-      'texttodisplay'=> array_values($goalrecords),
-      'url1'=> new moodle_url('/local/footscore/manage.php'),
-  ];
-
-  echo $OUTPUT->render_from_template('local_footscore/manage_delete',$templatecontext);
-  echo $OUTPUT->footer();

@@ -15,17 +15,24 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * Language file.
  *
- *
+ * @package    local_footballscore
+ * @copyright  2021 Shadman Ahmed
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @var stdClass $plugin
  */
 
-require_once(__DIR__ . '/../../config.php');
-
-global $DB;
-// Get and check parameters
-$id = required_param('id', PARAM_INT);
-$DB->delete_records('local_footscore', array('id' => $id));
-redirect($CFG->wwwroot.'/local/footscore/manage.php',"Deleted a record.");
+$string['id'] = 'ID';
+$string['team1'] = 'Name of Team 1: ';
+$string['goal1'] = 'Goals scored by Team 1: ';
+$string['team2'] = 'Name of Team 2: ';
+$string['goal2'] = 'Goals scored by Team 2: ';
+$string['createoredit'] = 'Create or Edit a Entry';
+$string['updatethanks'] = 'Thanks for updating a record';
+$string['insertthanks'] = 'Thanks for inserting a record';
+$string['deletemessage'] = "The record was deleted successfully!";
+$string['managepagetitle'] = "Manage Football Scores";
+$string['deletescore'] = "Delete Scores";
+$string['deletetitle'] = "Confirm Delete";
+$string['modalmessage'] = "Do you really want to delete this amazing score?";
+$string['delete'] = "Delete";

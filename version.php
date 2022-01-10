@@ -24,6 +24,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_footscore'; // Full name of the plugin (used for diagnostics).
-$plugin->version  = 2021110700;    // The current module version (Date: YYYYMMDDXX).
+$plugin->version  = 2021110702;    // The current module version (Date: YYYYMMDDXX).
 $plugin->requires = 2021051704;    // Requires this Moodle version.
 
