@@ -3,6 +3,7 @@
 It is a local plugin to show football scores
 
 -data can be added
+
 -data can be deleted
 
 While deleting, it shows a delete window which is done with modal.
