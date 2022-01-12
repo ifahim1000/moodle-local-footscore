@@ -37,10 +37,15 @@ class local_footscore_external_delete extends external_api
     public static function delete_footballscore($id)
     {
         global $DB;
-       $DB->delete_records('local_footscore', array('id' => $id));
+        $goalrecord= $DB->get_record('local_footscore',array('id' => $id));
+        $DB->delete_records('local_footscore', array('id' => $id));
 
         $return_value = [
-            'id' => $id,
+            'id' => $goalrecord->id,
+            'Team1' => $goalrecord->team1,
+            'Goal1' => $goalrecord->goal1,
+            'Team2' => $goalrecord->team2,
+            'Goal2' => $goalrecord->goal2,
             'status' => 'deleted'
         ];
         return $return_value;
@@ -52,6 +57,10 @@ class local_footscore_external_delete extends external_api
         return new external_single_structure(
             array(
                 'id' => new external_value(PARAM_INT, 'deleted data id'),
+                'Team1' => new external_value(PARAM_TEXT,'Team1 name'),
+                'Goal1' => new external_value(PARAM_TEXT, 'Goal by Team1'),
+                'Team2' => new external_value(PARAM_TEXT,'Team2 name'),
+                'Goal2' => new external_value(PARAM_TEXT, 'Goal by Team2'),
                 'status' => new external_value(PARAM_TEXT, 'deleted')
             )
         );
